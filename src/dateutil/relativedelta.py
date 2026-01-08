@@ -314,25 +314,6 @@ class relativedelta(object):
                               minute=self.minute, second=self.second,
                               microsecond=self.microsecond)
 
-    def total_months(self):
-        """
-        Return the total number of months represented by this relativedelta.
-
-        This method calculates the total months by combining the years and
-        months attributes. Days, hours, minutes, seconds, and microseconds
-        are not included as they cannot be reliably converted to months
-        without a reference date.
-
-        >>> relativedelta(years=1, months=2).total_months()
-        14
-        >>> relativedelta(months=-6).total_months()
-        -6
-
-        :return:
-            An integer representing the total number of months.
-        """
-        return self.years * 12 + self.months
-
     def __add__(self, other):
         if isinstance(other, relativedelta):
             return self.__class__(years=other.years + self.years,
